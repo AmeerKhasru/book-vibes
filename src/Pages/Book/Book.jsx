@@ -2,16 +2,16 @@ import React from 'react';
 
 const Book = ({ singleBook }) => {
     // Destructure the data for cleaner code
-    const { bookName, author, image, rating, category, tags } = singleBook;
+    const { bookName, author, image, rating, category, tags, yearOfPublishing,review } = singleBook;
 
     return (
         <div className="card bg-base-100 shadow-xl border border-gray-100 p-6 flex flex-col h-full">
             {/* Image Container with light gray background */}
             <figure className="bg-gray-100 py-8 rounded-2xl h-[230px]">
-                <img 
-                    src={image} 
-                    alt={bookName} 
-                    className="h-full object-contain shadow-md" 
+                <img
+                    src={image}
+                    alt={bookName}
+                    className="h-full object-contain shadow-md"
                 />
             </figure>
 
@@ -25,9 +25,19 @@ const Book = ({ singleBook }) => {
                     ))}
                 </div>
 
-                {/* Title & Author */}
-                <h2 className="text-2xl font-bold mb-2">{bookName}</h2>
+                {/* Title, year of publishing, Author and description */}
+                <div className='flex items-baseline gap-3 mb-2'>
+                    <h2 className="text-Xl font-extrabold text-gray-800 tracking-tight">
+                        {bookName}
+                    </h2>
+                    <span className="px-2 py-1 bg-pink-500 text-white text-sm font-medium rounded-md border border-gray-200">
+                      {yearOfPublishing}
+                    </span>
+                </div>
                 <p className="font-medium text-gray-600 mb-4">By : {author}</p>
+            
+
+
 
                 {/* Dotted Divider */}
                 <div className="border-t border-dashed border-gray-300 my-4"></div>
@@ -36,7 +46,7 @@ const Book = ({ singleBook }) => {
                 <div className="flex justify-between items-center text-gray-600 font-medium">
                     <span>{category}</span>
                     <div className="flex items-center gap-2">
-                        {rating} 
+                        {rating}
                         <span className="text-orange-400 text-xl">☆</span>
                     </div>
                 </div>
